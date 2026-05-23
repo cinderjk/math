@@ -74,7 +74,7 @@ const geometryQuestions: QuizQuestion[] = [
 		formula: '\\angle A + \\angle B + \\angle C = ?',
 		options: ['180^\\circ', '90^\\circ', '270^\\circ', '360^\\circ'],
 		correct: 0,
-		explanation: 'The interior angles of any triangle add up to 180^\\circ'
+		explanation: 'The interior angles of any triangle add up to 180 degrees'
 	},
 	{
 		question: 'What is the circumference of a circle with radius 6?',

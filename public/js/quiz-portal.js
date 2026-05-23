@@ -75,6 +75,49 @@ const elements = {
 	finalGrade: document.getElementById('finalGrade')
 };
 
+function renderExplanation(node, explanation) {
+	if (!node) return;
+
+	node.innerHTML = '';
+	const value = String(explanation ?? '');
+
+	if (!value.includes('\\')) {
+		node.textContent = value;
+		return;
+	}
+
+	const hasNaturalLanguage = /[A-Za-z]{3,}\s+[A-Za-z]{3,}/.test(value);
+	if (!hasNaturalLanguage) {
+		renderMath(node, value, true);
+		return;
+	}
+
+	const mathFragmentPattern = /(\\frac\{[^{}]*\}\{[^{}]*\}|\\sqrt\{[^{}]*\}|\\bar\{[^{}]*\}|\\text\{[^{}]*\}|\\\{[^}]*\\\}|\\[a-zA-Z]+(?:\{[^{}]*\})?|\^\{?\\circ\}?)/g;
+	let cursor = 0;
+	let match;
+
+	while ((match = mathFragmentPattern.exec(value)) !== null) {
+		const before = value.slice(cursor, match.index);
+		if (before) {
+			node.appendChild(document.createTextNode(before));
+		}
+
+		const inlineMath = document.createElement('span');
+		renderMath(inlineMath, match[0], false);
+		node.appendChild(inlineMath);
+		cursor = match.index + match[0].length;
+	}
+
+	const tail = value.slice(cursor);
+	if (tail) {
+		node.appendChild(document.createTextNode(tail));
+	}
+
+	if (!node.childNodes.length) {
+		node.textContent = value;
+	}
+}
+
 function randomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -345,7 +388,7 @@ function selectAnswer(index) {
 			<div class="mb-2 text-sm text-slate-600">Pembahasan singkat:</div>
 			<div id="quizExplanation" class="rounded-xl bg-white p-4"></div>
 		`;
-		renderMath(document.getElementById('quizExplanation'), question.explanation, true);
+		renderExplanation(document.getElementById('quizExplanation'), question.explanation);
 	}
 
 	if (elements.next) {

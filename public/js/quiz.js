@@ -158,7 +158,19 @@ function selectAnswer(index) {
 			<div class="mb-2 text-sm text-slate-600">Step-by-step solution:</div>
 			<div id="fbExplanation" class="rounded-lg bg-white p-3"></div>
 		`;
-		renderMath(document.getElementById('fbExplanation'), question.explanation, true);
+		const fbExplanation = document.getElementById('fbExplanation');
+		if (fbExplanation) {
+			// replace inner content with a plain-text container to avoid leftover KaTeX markup
+			fbExplanation.innerHTML = '<div class="explanation-text" style="white-space:normal; word-break:break-word; line-height:1.5;"></div>';
+			const inner = fbExplanation.querySelector('.explanation-text');
+			if (inner) {
+				if (question.explanation.includes('\\')) {
+					renderMath(inner, question.explanation, true);
+				} else {
+					inner.textContent = question.explanation;
+				}
+			}
+		}
 	}
 
 	const quizNext = document.getElementById('quizNext');
