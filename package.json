@@ -12,18 +12,18 @@
 		"publish": true
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "12.6.12",
-		"@astrojs/mdx": "4.3.13",
-		"@astrojs/rss": "4.0.14",
-		"@astrojs/sitemap": "3.6.1",
+		"@astrojs/cloudflare": "^13.5.4",
+		"@astrojs/mdx": "^5.0.6",
+		"@astrojs/rss": "^4.0.18",
+		"@astrojs/sitemap": "^3.7.2",
 		"@fortawesome/fontawesome-free": "^7.2.0",
-		"astro": "5.16.9",
+		"astro": "^6.3.7",
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
 		"@tailwindcss/vite": "^4.2.2",
 		"tailwindcss": "^4.2.2",
-		"wrangler": "4.56.0"
+		"wrangler": "^4.83.0"
 	},
 	"engines": {
 		"node": ">=22"
