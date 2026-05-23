@@ -1,0 +1,41 @@
+<section id="plotter" class="bg-gradient-to-b from-slate-50/50 to-white px-6 py-24">
+	<div class="mx-auto max-w-7xl">
+		<div class="reveal mb-14 text-center">
+			<p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-700">Interactive Tool</p>
+			<h2 class="mt-3 text-4xl font-extrabold tracking-tight md:text-5xl">Function Plotter</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-slate-500">Adjust parameters in real time and see how functions transform.</p>
+		</div>
+		<div class="grid items-start gap-8 lg:grid-cols-5 reveal">
+			<div class="space-y-6 rounded-[1.75rem] border border-slate-100 bg-white p-8 shadow-[0_18px_45px_rgba(15,23,42,0.10)] lg:col-span-2">
+				<div>
+					<label for="funcType" class="mb-2 block text-sm font-semibold text-slate-700">Function Type</label>
+					<select id="funcType" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none ring-0 transition focus:border-sky-500">
+						<option value="sine">Sine</option>
+						<option value="quadratic">Quadratic</option>
+						<option value="exponential">Exponential</option>
+						<option value="absolute">Absolute Value</option>
+					</select>
+				</div>
+				<div id="slidersContainer" class="space-y-4"></div>
+				<div class="flex flex-wrap gap-3 pt-2">
+					<button id="derivBtn" type="button" onclick="toggleDerivative()" class="inline-flex items-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
+						<i class="fas fa-wave-square mr-2"></i>Show Derivative
+					</button>
+					<button type="button" onclick="resetPlotter()" class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50">
+						<i class="fas fa-rotate-left mr-2"></i>Reset
+					</button>
+				</div>
+			</div>
+			<div class="canvas-wrap lg:col-span-3">
+				<div class="flex items-center justify-between gap-4 border-b border-slate-100 bg-white px-5 py-4">
+					<div>
+						<p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">Live Graph</p>
+						<div id="formulaDisplay" class="mt-1 text-slate-900"></div>
+					</div>
+					<div id="coordDisplay" class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-600">Hover to see coordinates</div>
+				</div>
+				<canvas id="plotterCanvas" class="block h-[420px] w-full"></canvas>
+			</div>
+		</div>
+	</div>
+</section>

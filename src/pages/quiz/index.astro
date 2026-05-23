@@ -1,0 +1,18 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import QuizPortal from '../../components/quiz/QuizPortal.astro';
+import { quizCategories } from '../../data/quizBank';
+
+const pageTitle = 'MathVerse Quiz Center';
+const pageDescription = 'Pilih kategori quiz lalu kerjakan 10 soal interaktif dari kategori tersebut.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={pageTitle} description={pageDescription} />
+	</head>
+	<body class="overflow-x-hidden bg-slate-50 text-slate-900 antialiased">
+		<QuizPortal categories={quizCategories} />
+	</body>
+</html>

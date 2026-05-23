@@ -1,0 +1,40 @@
+<section id="quiz" class="bg-gradient-to-b from-white to-gray-50/50 px-6 py-24">
+	<div class="mx-auto max-w-3xl">
+		<div class="reveal mb-14 text-center">
+			<p class="text-sm font-semibold uppercase tracking-[0.35em] text-violet-700">Test Your Skills</p>
+			<h2 class="mt-3 text-4xl font-extrabold tracking-tight md:text-5xl">Math Challenge</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-slate-500">Instant-feedback quizzes across all categories. How many can you get right?</p>
+		</div>
+		<div class="reveal overflow-hidden rounded-[1.75rem] border border-gray-100 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+			<div class="h-1.5 bg-slate-100"><div id="quizProgress" class="h-full w-0 bg-gradient-to-r from-sky-500 to-violet-500 transition-all duration-300"></div></div>
+			<div class="p-8 md:p-10">
+				<div class="mb-8 flex items-center justify-between gap-4">
+					<div class="flex items-center gap-3">
+						<span id="quizCategory" class="rounded-full bg-pink-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-pink-500">Algebra</span>
+						<span id="quizNum" class="text-sm font-medium text-gray-400">Question 1 / 8</span>
+					</div>
+					<div class="flex items-center gap-2"><i class="fas fa-star text-yellow-400"></i><span id="quizScore" class="text-lg font-bold">0</span></div>
+				</div>
+				<p id="quizQuestion" class="mb-3 text-xl font-bold leading-snug md:text-2xl"></p>
+				<div id="quizFormula" class="mb-8 rounded-xl bg-gray-50 p-4 text-center"></div>
+				<div id="quizOptions" class="mb-6 space-y-3"></div>
+				<div id="quizFeedback" class="hidden mb-6 rounded-xl p-5"></div>
+				<div class="flex justify-end">
+					<button id="quizNext" type="button" onclick="nextQuestion()" class="hidden rounded-xl bg-sky-600 px-8 py-3 font-bold text-white shadow-md transition-colors hover:bg-sky-700">Next Question <i class="fas fa-arrow-right ml-2"></i></button>
+				</div>
+			</div>
+		</div>
+		<div id="quizComplete" class="mt-8 hidden rounded-2xl border border-gray-100 bg-white p-10 text-center shadow-xl">
+			<div class="mb-4 text-6xl"><i class="fas fa-trophy text-amber-400"></i></div>
+			<h3 class="text-3xl font-extrabold tracking-tight">Challenge Complete</h3>
+			<p id="finalScore" class="mt-3 text-lg text-slate-500"></p>
+			<div id="finalGrade" class="mt-6 text-5xl font-extrabold"></div>
+			<button type="button" onclick="restartQuiz()" class="mt-8 inline-flex items-center rounded-xl bg-sky-600 px-8 py-3 font-bold text-white shadow-md transition-colors hover:bg-sky-700">
+				<i class="fas fa-redo mr-2"></i>Try Again
+			</button>
+			<a href="/quiz" class="mt-4 inline-flex items-center rounded-xl bg-gray-200 px-8 py-3 font-bold text-gray-700 shadow-md transition-colors hover:bg-gray-300">
+				<i class="fas fa-list mr-2"></i>Buka Quiz Center
+			</a>
+		</div>
+	</div>
+</section>
